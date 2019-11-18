@@ -1,25 +1,35 @@
 import RPi.GPIO as GPIO
 import time
 
+#set GPIO pins
+sensor_trigger = 8
+sensor_echo = 10
+
+#set GPIO mode (GPIO.BOARD)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(8, GPIO.OUT)
-GPIO.setup(10, GPIO.IN)
+GPIO.setup(sensor_trigger, GPIO.OUT)
+GPIO.setup(sensor_echo, GPIO.IN)
 
 
-def måleafstand():
-    GPIO.output(8, True)
-    time.sleep(0.00001)
-    GPIO.output(8, False)
+def distance():
+    startTime = time.time()
+    stopTime = time.time()
 
-    while GPIO.input(10) == 0:
+    GPIO.output(sensor_trigger, True)
+    time.sleep(0.00002)
+    GPIO.output(sensor_trigger, False)
+
+
+    #Mesure the start and stop time
+    while GPIO.input(sensor_echo) == 0:
         startTime = time.time()
 
-    while GPIO.input(10) == 1:
+    while GPIO.input(sensor_echo) == 1:
         stopTime = time.time()
-
-    tid = stopTime - startTime
-    afstand = (tid * 34300) / 2
-    return afstand
+    #Time differ
+    timeElapsed = stopTime - startTime
+    distance = (timeElapsed * 34300) / 2
+    return distance
 
 
 input("tryk 'enter' for at måle afstand.")
