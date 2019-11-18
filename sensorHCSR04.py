@@ -15,29 +15,26 @@ def distance():
     startTime = time.time()
     stopTime = time.time()
 
+    #set trigger high and low after 20ms
     GPIO.output(sensor_trigger, True)
     time.sleep(0.00002)
     GPIO.output(sensor_trigger, False)
 
-
     #Mesure the start and stop time
     while GPIO.input(sensor_echo) == 0:
         startTime = time.time()
-
     while GPIO.input(sensor_echo) == 1:
         stopTime = time.time()
-    #Time differ
+
+    #Time difference
     timeElapsed = stopTime - startTime
+    #calc the distantce
     distance = (timeElapsed * 34300) / 2
     return distance
-
 
 input("tryk 'enter' for at måle afstand.")
 
 dist = distance()
 print("Den målte afstand er = %.1f cm" % dist)
 time.sleep(1)
-
-input("tryk 'enter' for at afslutte.")
-
 GPIO.cleanup()
