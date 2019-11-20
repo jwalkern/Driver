@@ -10,7 +10,7 @@ for index in range(4):
     print(test)
 
 count = 0
-while count >= 10:
+while count <= 10:
     trigger = GPIO.input(8)
     if trigger == 0:
         count = count + 1
