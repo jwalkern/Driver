@@ -7,18 +7,18 @@ GPIO.add_event_detect(8, GPIO.FALLING)
 
 print("DO NOT PUSH THE BUTTON!")
 count = 0
-while count <= 49:
-    if GPIO.event_detected(8) and check == True:
+while count <= 9:
+    if GPIO.event_detected(8): #and check == True:
         count = count + 1
-        if count < 50:
+        if count < 10:
             print("You have ignored the rule " + str(count) + " times.")
         else:
-            count == 50
+            count == 10
             print("That is it! BYE!")
-        check = False
+        #check = False
         time.sleep(0.1)
-    if GPIO.input(8) == 1:
-        check = True
+    #if GPIO.input(8) == 1:
+        #check = True
 GPIO.cleanup()
 
 
