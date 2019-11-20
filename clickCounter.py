@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(8, GPIO.IN)
+GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 print("DO NOT PUSH THE BUTTON!")
 count = 0
@@ -19,6 +19,8 @@ while count <= 9:
     if GPIO.input(8) == 1:
         check = True
 GPIO.cleanup()
+
+
 
 
 
