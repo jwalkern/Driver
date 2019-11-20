@@ -15,7 +15,7 @@ while count <= 9:
             count == 10
             print("That is it! BYE!")
         check = False
-        time.sleep(0.001)
+        time.sleep(0.1)
     if GPIO.input(8) == 1:
         check = True
 GPIO.cleanup()
