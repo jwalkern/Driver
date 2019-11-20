@@ -15,6 +15,7 @@ while count < 10:
     if trigger == 0:
         count + 1
         print("Du har trykket " + str(count) + " gange.")
+        time.sleep(0.000010)
 
 
 
