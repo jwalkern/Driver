@@ -4,7 +4,7 @@ import time
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.IN)
 
-for index in range(4):
+for index in range(2):
     input()
     test = GPIO.input(8)
     print(test)
