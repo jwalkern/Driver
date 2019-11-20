@@ -6,7 +6,7 @@ GPIO.setup(8, GPIO.IN)
 
 for index in range(4):
     input()
-    test = GPIO.INPUT(8)
+    test = GPIO.input(8)
     print(test)
 
 
