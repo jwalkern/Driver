@@ -9,13 +9,16 @@ for index in range(2):
     test = GPIO.input(8)
     print(test)
 
+check = True
 count = 0
 while count <= 10:
-    trigger = GPIO.input(8)
-    if trigger == 0:
+    if GPIO.input(8) == 0 and check == True:
         count = count + 1
         print("Du har trykket " + str(count) + " gange.")
         time.sleep(0.10)
+        check = False
+    check = True
+
 
 
 
