@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.IN)
 
@@ -8,11 +9,13 @@ count = 0
 while count <= 9:
     if GPIO.input(8) == 0 and check == True:
         count = count + 1
-        if count < 9:
+        if count < 10:
             print("You have ignored the rule " + str(count) + " times.")
         else:
+            count == 10
             print("That is it! BYE!")
         check = False
+        time.sleep(0.001)
     if GPIO.input(8) == 1:
         check = True
 GPIO.cleanup()
