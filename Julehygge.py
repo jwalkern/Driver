@@ -4,7 +4,7 @@ import time
 pi = pigpio.pi()
 
 
-buzzerPin = 8 
+buzzerPin = 12
 tempo = 200 
 notes = ["e","e","e","e","e","e","e","g","c","d","e"," ","f","f","f","f","f","e","e","e","e","d","d","e","d","g"]
 duration = [1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2] 
