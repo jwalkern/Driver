@@ -4,43 +4,46 @@ import time
 pi = pigpio.pi()
 pi.set_mode(12, pigpio.OUTPUT)
 
-highD = pi.set_PWM_frequency(12, 587)
-midD = pi.set_PWM_frequency(12, 294)
-midA = pi.set_PWM_frequency(12, 440)
-midG = pi.set_PWM_frequency(12, 392)
-midF = pi.set_PWM_frequency(12, 349)
-midC = pi.set_PWM_frequency(12, 262)
+def tone(num):
+       pi.set_PWM_frequency(12, num)
 
+
+midD = 294
+highD = 587
+midA = 440
+midG = 392
+midF = 349
+midC = 262
 
 input('start')
 #440 Hz er kammertone A4
 pi.set_PWM_dutycycle(12, 128) #PWM 1/2 on
 
-midD
+tone(midD)
 time.sleep(0.5)
-midD
+tone(midD)
 time.sleep(0.5)
-highD
+tone(highD)
 time.sleep(0.5)
-midG
+tone(midG)
 time.sleep(0.5)
-midG
+tone(midG)
 time.sleep(0.5)
-midF
+tone(midF)
 time.sleep(0.5)
-midG
+tone(midG)
 time.sleep(0.5)
-midC
+tone(midC)
 time.sleep(0.5)
-midC
+tone(midC)
 time.sleep(0.5)
-highD
+tone(highD)
 time.sleep(0.5)
-midA
+tone(midA)
 time.sleep(0.5)
-midG
+tone(midG)
 time.sleep(0.5)
-midG
+tone(midG)
 time.sleep(0.5)
 
 
