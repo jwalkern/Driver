@@ -3,196 +3,56 @@ import time
 
 pi = pigpio.pi()
 
-def tone(pin,freq,duty):
-       pi.set_PWM_frequency(pin, freq)
+def tone(freq,duty):
+       pi.set_PWM_frequency(12, freq)
        time.sleep(duty/1000)
-       pi.set_PWM_frequency(pin, 0)
+       pi.set_PWM_frequency(12, 0)
        
 def delay(num):
        time.sleep(num/1000)
+
+c = 261
+d = 293
+e = 329
+f = 349
+g = 392
 
 
 input('start')
 #440 Hz er kammertone A4
 pi.set_PWM_dutycycle(12, 128) #PWM 1/2 on
 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,250)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,247,125)  #B3
-delay(125) 
-tone( 12,247,125)  #B3
-delay(125) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,233, 62)  #Bb3
-delay(62) 
-tone( 12,233, 62)  #Bb3
-delay(62) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,261,125)  #C4(middle)     
-delay(62) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,247,125)  #B3
-delay(125) 
-tone( 12,247,125)  #B3
-delay(125) 
-tone( 12,587,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,233,62)  #Bb3
-delay(62) 
-tone( 12,588,250)  #D5
-delay(250) 
-tone( 12,440,375)  #A4
-delay(375) 
-tone( 12,415,125)  #Ab4
-delay(250) 
-tone( 12,392,250)  #G4
-delay(250) 
-tone( 12,349,250)  #F4
-delay(250) 
-tone( 12,294,125)  #D4
-delay(125) 
-tone( 12,349,125)  #F4
-delay(125) 
-tone( 12,392,125)  #G4
-delay(125) 
+tone(e, 200)
+tone(e, 200)
+tone(e, 400)
+tone(e, 200)
+tone(e, 200)
+tone(e, 400)
+tone(e, 200)
+tone(g, 200)
+tone(c, 200)
+tone(d, 200)
+tone(e, 400)
+delay(400)
+tone(f, 200)
+tone(f, 200)
+tone(f, 200)
+tone(f, 200)
+tone(f, 200)
+tone(e, 200)
+tone(e, 200)
+tone(e, 200)
+tone(e, 200)
+tone(d, 200)
+tone(d, 200)
+tone(e, 200)
+tone(d, 200)
+tone(g, 400)
+
+
+pi.set_PWM_dutycycle(12, 0) #PWM off
+
 
 input('stop')
 
-pi.set_PWM_dutycycle(12, 0) #PWM off
+
