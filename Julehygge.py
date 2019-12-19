@@ -3,78 +3,40 @@ import time
 
 pi = pigpio.pi()
 
-def tone(freq,duty):
-       pi.set_PWM_frequency(12, freq)
-       time.sleep(duty/1000)
-       pi.set_PWM_frequency(12, 0)
-       
-def delay(num):
-       time.sleep(num/1000)
 
-c = 261
-d = 293
-e = 329
-f = 349
-g = 392
+buzzerPin = 8 
+tempo = 200 
+notes = ["e","e","e","e","e","e","e","g","c","d","e"," ","f","f","f","f","f","e","e","e","e","d","d","e","d","g"]
+duration = [1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2] 
+def delay(ms):
+       time.sleep(ms/1000)
+
+def tone(buzzerPin, tone, duration):
+       pi.set_PWM_frequency(buzzerPin, tone)
+       delay(duration)
+       pi.set_PWM_frequency(buzzerPin, 0)
+
+def playTheShit(note, duration):
+  notesName = [ 'c', 'd', 'e', 'f', 'g' ]
+  tones = [ 261, 293, 329, 349, 392 ]
+
+  for i in range(len(tones)):
+         if note == notesName[i]:
+                tone(buzzerPin, tones[i], duration)
+
 
 
 input('start')
-#440 Hz er kammertone A4
 pi.set_PWM_dutycycle(12, 128) #PWM 1/2 on
+for i in range(len(notes)):
+       if notes[i] == " ":
+              delay(duration[i] * tempo)
+       else:
+              playTheShit(notes[i], duration[i] * tempo)
 
-tone(e, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 400)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 400)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(g, 200)
-delay(200)
-tone(c, 200)
-delay(200)
-tone(d, 200)
-delay(200)
-tone(e, 800)
-delay(400)
-tone(f, 200)
-delay(200)
-tone(f, 200)
-delay(200)
-tone(f, 200)
-delay(200)
-tone(f, 200)
-delay(200)
-tone(f, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(d, 200)
-delay(200)
-tone(d, 200)
-delay(200)
-tone(e, 200)
-delay(200)
-tone(d, 200)
-delay(200)
-tone(g, 400)
-
+       delay((tempo*2)*duration[i])
 
 pi.set_PWM_dutycycle(12, 0) #PWM off
-
 
 input('stop')
 
