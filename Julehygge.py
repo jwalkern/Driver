@@ -5,11 +5,11 @@ pi = pigpio.pi()
 
 def tone(pin,freq,duty):
        pi.set_PWM_frequency(pin, freq)
-       time.sleep(duty/100000)
+       time.sleep(duty/20000)
        pi.set_PWM_frequency(pin, 0)
        
 def delay(num):
-       time.sleep(num/100000)
+       time.sleep(num/20000)
 
 
 input('start')
