@@ -7,7 +7,7 @@ pi = pigpio.pi()
 buzzerPin = 12
 tempo = 200 
 notes = ["e","e","e","e","e","e","e","g","c","d","e"," ","f","f","f","f","f","e","e","e","e","d","d","e","d","g"]
-duration = [1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2] 
+duration = [1, 1, 2, 1, 1, 2, 1, 1, 1, 0.5, 2, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 1, 1, 2, 2]
 def delay(ms):
        time.sleep(ms/1000)
 
@@ -34,7 +34,7 @@ for i in range(len(notes)):
        else:
               playTheShit(notes[i], duration[i] * tempo)
 
-       delay((tempo*2)*duration[i])
+       delay((tempo)*duration[i])
 
 pi.set_PWM_dutycycle(12, 0) #PWM off
 
